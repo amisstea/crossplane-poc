@@ -20,18 +20,22 @@ helm install crossplane \
 
 1. First place a valid kubeconfig in the `eaas-cluster` secret within the `crossplane-system` namespace. Use the `kubeconfig` key.
 
+2. Modify the annotation in `002-provider-configs.yaml` so that it points to the kubernetes
+API server referenced in the prior kubeconfig.
+
 2. Create the admin-controlled crossplane resources.
 
     **Note:** Some resources may not apply successfully the first time. If this happens give
     the cluster some time to reconcile dependencies and try again.
 
     ```shell
-    kubectl apply -f 000-namespaces.yaml
-    kubectl apply -f 001-providers.yaml
-    kubectl apply -f 002-provider-configs.yaml
-    kubectl apply -f 003-functions.yaml
-    kubectl apply -f 004-xrds.yaml
-    kubectl apply -f 005-xrs.yaml
+    kubectl apply -f \
+      000-namespaces.yaml \
+      001-providers.yaml \
+      002-provider-configs.yaml \
+      003-functions.yaml \
+      004-xrds.yaml \
+      005-xrs.yaml
     ```
 
 ## Request a Namespace
