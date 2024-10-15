@@ -100,7 +100,7 @@ spec:
                       namespace: {{ .context.namespace }}
                   roleRef:
                     kind: ClusterRole
-                    name: admin
+                    name: edit
                     apiGroup: rbac.authorization.k8s.io
               providerConfigRef:
                 name: eaas-kubernetes-provider-config
