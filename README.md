@@ -29,31 +29,39 @@ API server referenced in the prior kubeconfig.
     the cluster some time to reconcile dependencies and try again.
 
     ```shell
-    kubectl apply -f \
-      000-namespaces.yaml \
-      001-providers.yaml \
-      002-provider-configs.yaml \
-      003-functions.yaml \
-      004-xrds.yaml \
-      005-xrs.yaml
+    kubectl apply \
+      -f 000-namespaces.yaml \
+      -f 001-providers.yaml \
+      -f 002-provider-configs.yaml \
+      -f 003-functions.yaml \
+      -f 004-xrds.yaml \
+      -f 005-xrs.yaml
     ```
 
 ## Request a Namespace
 
-Create a namespace claim.
+Create a claim for a namespace.
 
 ```shell
-kubectl apply -f 006-claims.yaml
+./namespace-demo.sh
 ```
 
-Get the connection details to the namespace.
+In addition to outputting the generated namespace, serviceaccount, secrets and rolebindings,
+this script will write a `kubeconfig` file to the working directory.
+Use the config to access the namespace. For example:
 
-```shell
-kubectl get secret my-claim-secret -o yaml
+```
+KUBECONFIG=kubeconfig kubectl get serviceaccounts
 ```
 
-Now delete the namespace claim.
+Delete all EaaS namespaces when you're ready.
 
 ```shell
-kubectl delete -f 006-claims.yaml
+kubectl delete --all namespaces.eaas.konflux-ci.dev
+```
+
+Notice the connection credentials have been deleted as well.
+
+```shell
+kubectl get secrets
 ```
