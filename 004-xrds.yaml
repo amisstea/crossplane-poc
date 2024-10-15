@@ -18,9 +18,4 @@ spec:
       schema:
         openAPIV3Schema:
           type: object
-          properties:
-            status:
-              type: object
-              properties:
-                namespace:
-                  type: string
+          properties: {}
