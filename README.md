@@ -35,7 +35,7 @@ API server referenced in the prior kubeconfig.
       -f 002-provider-configs.yaml \
       -f 003-functions.yaml \
       -f 004-xrds.yaml \
-      -f 005-xrs.yaml
+      -f 005-compositions.yaml
     ```
 
 ## Request a Namespace

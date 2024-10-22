@@ -4,7 +4,7 @@ kind: ProviderConfig
 metadata:
   name: eaas-kubernetes-provider-config
   annotations:
-    eaas.konflux-ci.dev/api-server: https://api.amisstea-eaas.2ca4.p3.openshiftapps.com:443
+    eaas.konflux-ci.dev/api-server: https://api.amisstea-eaas.xawc.p3.openshiftapps.com:443
 spec:
   credentials:
     source: Secret
